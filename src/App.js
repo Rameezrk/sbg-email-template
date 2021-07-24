@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './App.css';
 import EmailTemplates from './EmailTemplates.json'
 
@@ -6,7 +6,12 @@ import EmailTemplates from './EmailTemplates.json'
 console.log(EmailTemplates)
 const data = EmailTemplates
 
+
+
 function App() {
+
+  const [selected, setSelected] = useState('')
+
   return (
     <div className="App">
       <h1>Hello World</h1>
@@ -14,13 +19,16 @@ function App() {
 
       <h1>Email Template Responses</h1>
       <label>Select the templated response </label>
-      <select>
+      <select onChange={(event) => {setSelected(event.target.value)}}>
+
         {data.map(item => (
           <option key={item.id} value={item.subject}>
             {item.subject}
           </option>
         ))}
       </select>
+
+        {JSON.stringify(selected)}
 
       <div><label>Analyst Name: </label>
       <select>
@@ -36,17 +44,27 @@ function App() {
         <input placeholder='Insert Customer ID here'></input>
       </div>
 
-    {data.map((data) => {
+    {/* {data.map((data) => {
       return  <ul key={data.id}>
                 <li>{data.subject}</li>
               </ul>
-    })}
+    })} */}
 
-    
-    {/* <div>
-    //This is where I want the select value data.text to be displayed here  
-    </div> */}
    
+
+    <div>
+    {selected && data.filter(mail => mail.subject === selected)[0].text}
+    </div>
+
+    {/* npm i -D prettier */} 
+    
+  
+    {/* <select onChange={e=> console(e)}/> */}
+
+    {/* <pre>{JSON.stringify(someObject,null, 2)}</pre> */}
+
+    {/* const greetWithTemplate= (custmer)=>{return `Hello ${customer}`} */}
+
     {/* I also want the specific inputs and names to be populated on the text.  */}
 
        
