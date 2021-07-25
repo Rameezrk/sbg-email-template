@@ -39,32 +39,26 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+## Why I created this app
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+With the day to day runnings of my work I had to send daily emails to customers. However I kept running into the same problem on a daily basis which was that not all of the responses I had to send to the customer were templated in the program I used. 
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+This meant that over and over again I had to keep copy and pasting random information from word docs into the browser rather than just being able to select the correct template with the relevant information on and save time and energy doing a repeated chore. 
 
-### Code Splitting
+Therefore I decided to dive into solving the problem myself by creating the email templates from the get go and having an app that had all the necessary information on so that I could work on the more important parts of my job. 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
+## Lessons Learned
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- Whilst I believe that my vanilla JS is quite strong getting it applied to React.JS has been difficult for me and I've spent some time being able to apply the skills that I have learned in a clean and effective way
 
-### Making a Progressive Web App
+- I've tried to keep the variable naming relevant but I have had difficulty producing clean code constantly going back and forth 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
+## What I would change
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+I initially thought that the easiest way to access the data would be through a JSON file and as an object but I've realised that with the amount of text required it has become quite cumbersome to manipulate the text. 
 
-### Deployment
+If I have the opportunity in the future I will create the email template text in a seperate JS file and add it in as a component. 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+I also would then incorporate template literals so that the code is more efficient and easier to use and I need to have a system then where I can efficiently take in templates that are built by other users but this may be all outside of my scope for now. 

@@ -11,33 +11,25 @@ const data = EmailTemplates
 function App() {
 
   const [selected, setSelected] = useState('')
-
+  const [customerName, setCustomerName] = useState('')
+  const [customerId, setCustomerId] = useState('')
+  const [analystName, setAnalystName] = useState('')
+  const [date, setDate] = useState('')
+  
   let output = selected && data.filter(mail => mail.subject === selected)[0].text
   console.log(output)
 
-  let handleClick = () => {
-    const mapObj = {
-      laborum: "Kind Regards",
-      est: "TEST"
-    }
-  
-    
-  output.split('\n').map(function(item) {
-    return ({item})
-  })
-    
-
-    let replaceOutput = output.replace(/\b(?:laborum|est)\b/gi, matched => mapObj[matched])
-    console.log(replaceOutput)
-
-    
+  const mapObj = {
+    CUSTOMER: customerName,
+    ACCOUNTID: customerId,
+    DATE: date,
+    ANALYST: analystName
   }
+
 
   return (
     <div className="App">
-      <h1>Hello World</h1>
-
-
+      
       <h1>Email Template Responses</h1>
       <label>Select the templated response </label>
       <select onChange={(event) => {setSelected(event.target.value)}}>
@@ -52,24 +44,37 @@ function App() {
         {JSON.stringify(selected)}
 
       <div><label>Analyst Name: </label>
-      <select>
+      <select onChange={event => setAnalystName(event.target.value)}>
+        <option>Select Analyst</option>
         <option>Rameez Khawaja</option>
         <option>James Whisker</option>
       </select></div>
       
       <div><label>Customer Name: </label>
-        <input type='text' placeholder='Insert Customer name here'></input>
+        <input type='text' 
+        placeholder='Insert Customer name here'
+        onChange={event => setCustomerName(event.target.value)}
+        ></input>
       </div>
 
       <div><label>Customer ID: </label>
-        <input type='text' placeholder='Insert Customer ID here'></input>
+        <input type='text' 
+        placeholder='Insert Customer ID here'
+        onChange={event => setCustomerId(event.target.value)}
+        ></input>
       </div>
 
       <div><label>Deadline Date: </label>
-        <input type='date' ></input>
+        <input 
+        type='date' 
+        onChange={event => setDate(event.target.value)}
+        ></input>
       </div>
 
-      <button onClick={handleClick}>Convert Text</button>
+      
+
+      <button onClick={() => {navigator.clipboard.writeText(selected && data.filter(mail => mail.subject === selected)[0].text.replace(/\b(?:CUSTOMER|ACCOUNTID|DATE|ANALYST)\b/gi, matched => mapObj[matched]))}}
+      >Copy Text</button>
 
     {/* {data.map((data) => {
       return  <ul key={data.id}>
@@ -79,24 +84,24 @@ function App() {
 
    
 
-    <div>
+    {/* <div> 
     {selected && data.filter(mail => mail.subject === selected)[0].text}
-    </div>
+    </div> */}
     
+    <div><label>Subject Heading: </label>{selected}</div>
 
-    {/* <div>{newOutput}</div> */}
+    <pre>{selected && data.filter(mail => mail.subject === selected)[0].text.replace(/\b(?:CUSTOMER|ACCOUNTID|DATE|ANALYST)\b/gi, matched => mapObj[matched])}</pre>
+    
+    {/* Need to get the handleclick to replace the output text 
 
-    {/* npm i -D prettier */} 
+    Need to add extra information onto the JSON which is straight forward 
 
-  
-    {/* <select onChange={e=> console(e)}/> */}
+    The line paragrah splits also need to happen before the button is clicked so the text is displayed
+    more clearly  
 
-    {/* <pre>{JSON.stringify(someObject,null, 2)}</pre> */}
+     */}
 
-    {/* const greetWithTemplate= (custmer)=>{return `Hello ${customer}`} */}
-
-    {/* I also want the specific inputs and names to be populated on the text.  */}
-
+     <div className='footer'>Created by <a target={'_blank'} rel="noreferrer noopener" href={'https://github.com/Rameezrk'}>Rameez Khawaja</a></div>
        
     </div>
   );
