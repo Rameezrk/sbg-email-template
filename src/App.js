@@ -41,7 +41,7 @@ function App() {
         ))}
       </select>
 
-        {JSON.stringify(selected)}
+        {/* {JSON.stringify(selected)} */}
 
       <div><label>Analyst Name: </label>
       <select onChange={event => setAnalystName(event.target.value)}>
