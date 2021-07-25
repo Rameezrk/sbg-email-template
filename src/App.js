@@ -12,6 +12,27 @@ function App() {
 
   const [selected, setSelected] = useState('')
 
+  let output = selected && data.filter(mail => mail.subject === selected)[0].text
+  console.log(output)
+
+  let handleClick = () => {
+    const mapObj = {
+      laborum: "Kind Regards",
+      est: "TEST"
+    }
+  
+    
+  output.split('\n').map(function(item) {
+    return ({item})
+  })
+    
+
+    let replaceOutput = output.replace(/\b(?:laborum|est)\b/gi, matched => mapObj[matched])
+    console.log(replaceOutput)
+
+    
+  }
+
   return (
     <div className="App">
       <h1>Hello World</h1>
@@ -37,12 +58,18 @@ function App() {
       </select></div>
       
       <div><label>Customer Name: </label>
-        <input placeholder='Insert Customer name here'></input>
+        <input type='text' placeholder='Insert Customer name here'></input>
       </div>
 
       <div><label>Customer ID: </label>
-        <input placeholder='Insert Customer ID here'></input>
+        <input type='text' placeholder='Insert Customer ID here'></input>
       </div>
+
+      <div><label>Deadline Date: </label>
+        <input type='date' ></input>
+      </div>
+
+      <button onClick={handleClick}>Convert Text</button>
 
     {/* {data.map((data) => {
       return  <ul key={data.id}>
@@ -55,9 +82,12 @@ function App() {
     <div>
     {selected && data.filter(mail => mail.subject === selected)[0].text}
     </div>
+    
+
+    {/* <div>{newOutput}</div> */}
 
     {/* npm i -D prettier */} 
-    
+
   
     {/* <select onChange={e=> console(e)}/> */}
 
