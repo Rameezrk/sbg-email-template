@@ -46,8 +46,8 @@ function App() {
       <div><label>Analyst Name: </label>
       <select onChange={event => setAnalystName(event.target.value)}>
         <option>Select Analyst</option>
-        <option>Rameez Khawaja</option>
-        <option>James Whisker</option>
+        <option>Rameez</option>
+        <option>James</option>
       </select></div>
       
       <div><label>Customer Name: </label>
