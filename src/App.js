@@ -88,7 +88,7 @@ function App() {
     {selected && data.filter(mail => mail.subject === selected)[0].text}
     </div> */}
     
-    <div><label>Subject Heading: </label>{selected}</div>
+    {/* <div><label>Subject Heading: </label>{selected}</div> */}
 
     <pre>{selected && data.filter(mail => mail.subject === selected)[0].text.replace(/\b(?:CUSTOMER|ACCOUNTID|DATE|ANALYST)\b/gi, matched => mapObj[matched])}</pre>
     
