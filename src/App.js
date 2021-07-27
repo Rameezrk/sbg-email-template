@@ -15,6 +15,7 @@ function App() {
   const [customerId, setCustomerId] = useState('')
   const [analystName, setAnalystName] = useState('')
   const [date, setDate] = useState('')
+  const [time, setTime] = useState('')
   
   let output = selected && data.filter(mail => mail.subject === selected)[0].text
   console.log(output)
@@ -23,7 +24,8 @@ function App() {
     CUSTOMER: customerName,
     ACCOUNTID: customerId,
     DATE: date,
-    ANALYST: analystName
+    ANALYST: analystName,
+    TIME: time
   }
 
 
@@ -71,9 +73,15 @@ function App() {
         ></input>
       </div>
 
+      <div><label>Calling time: </label>
+        <input 
+        type='time' 
+        onChange={event => setTime(event.target.value)}
+        ></input>
+      </div>
       
 
-      <button onClick={() => {navigator.clipboard.writeText(selected && data.filter(mail => mail.subject === selected)[0].text.replace(/\b(?:CUSTOMER|ACCOUNTID|DATE|ANALYST)\b/gi, matched => mapObj[matched]))}}
+      <button onClick={() => {navigator.clipboard.writeText(selected && data.filter(mail => mail.subject === selected)[0].text.replace(/\b(?:CUSTOMER|ACCOUNTID|DATE|ANALYST|TIME)\b/gi, matched => mapObj[matched]))}}
       >Copy Text</button>
 
     {/* {data.map((data) => {
@@ -90,7 +98,7 @@ function App() {
     
     {/* <div><label>Subject Heading: </label>{selected}</div> */}
 
-    <pre>{selected && data.filter(mail => mail.subject === selected)[0].text.replace(/\b(?:CUSTOMER|ACCOUNTID|DATE|ANALYST)\b/gi, matched => mapObj[matched])}</pre>
+    <pre>{selected && data.filter(mail => mail.subject === selected)[0].text.replace(/\b(?:CUSTOMER|ACCOUNTID|DATE|ANALYST|TIME)\b/gi, matched => mapObj[matched])}</pre>
     
     {/* Need to get the handleclick to replace the output text 
 
