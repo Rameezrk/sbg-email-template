@@ -52,6 +52,10 @@ function App() {
         <option>Select Analyst</option>
         <option>Rameez</option>
         <option>James</option>
+        <option>Sophia</option>
+        <option>Amelia</option>
+        <option>Adam</option>
+        <option>Gabrielle</option>
       </select></div>
       
       <div><label>Customer Name: </label>
