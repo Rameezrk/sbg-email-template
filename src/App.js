@@ -2,10 +2,8 @@ import React, {useState} from 'react'
 import './App.css';
 import EmailTemplates from './EmailTemplates.json'
 
-
-console.log(EmailTemplates)
+// console.log(EmailTemplates)
 const data = EmailTemplates
-
 
 
 function App() {
@@ -17,13 +15,17 @@ function App() {
   const [date, setDate] = useState('')
   const [time, setTime] = useState('')
   
-  let output = selected && data.filter(mail => mail.subject === selected)[0].text
-  console.log(output)
+  // let output = selected && data.filter(mail => mail.subject === selected)[0].text
+  // console.log(output)
+
+  let newDate = new Date(date).toLocaleDateString()
+
+  // console.log(newDate)
 
   const mapObj = {
     CUSTOMER: customerName,
     ACCOUNTID: customerId,
-    DATE: date,
+    DATE: newDate,
     ANALYST: analystName,
     TIME: time
   }
