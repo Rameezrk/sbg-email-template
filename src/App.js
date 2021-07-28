@@ -23,11 +23,11 @@ function App() {
   // console.log(newDate)
 
   const mapObj = {
-    CUSTOMER: customerName,
+    SBGCUSTOMER: customerName,
     ACCOUNTID: customerId,
     DATE: newDate,
     ANALYST: analystName,
-    TIME: time
+    SBGTIME: time
   }
 
 
@@ -87,7 +87,7 @@ function App() {
       </div>
       
 
-      <button onClick={() => {navigator.clipboard.writeText(selected && data.filter(mail => mail.subject === selected)[0].text.replace(/\b(?:CUSTOMER|ACCOUNTID|DATE|ANALYST|TIME)\b/gi, matched => mapObj[matched]))}}
+      <button onClick={() => {navigator.clipboard.writeText(selected && data.filter(mail => mail.subject === selected)[0].text.replace(/\b(?:SBGCUSTOMER|ACCOUNTID|DATE|ANALYST|SBGTIME)\b/gi, matched => mapObj[matched]))}}
       >Copy Text</button>
 
     {/* {data.map((data) => {
@@ -104,7 +104,7 @@ function App() {
     
     {/* <div><label>Subject Heading: </label>{selected}</div> */}
 
-    <pre>{selected && data.filter(mail => mail.subject === selected)[0].text.replace(/\b(?:CUSTOMER|ACCOUNTID|DATE|ANALYST|TIME)\b/gi, matched => mapObj[matched])}</pre>
+    <pre>{selected && data.filter(mail => mail.subject === selected)[0].text.replace(/\b(?:SBGCUSTOMER|ACCOUNTID|DATE|ANALYST|SBGTIME)\b/gi, matched => mapObj[matched])}</pre>
     
     {/* Need to get the handleclick to replace the output text 
 
