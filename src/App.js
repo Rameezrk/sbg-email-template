@@ -15,8 +15,6 @@ function App() {
   const [date, setDate] = useState('')
   const [time, setTime] = useState('')
   
-  // let output = selected && data.filter(mail => mail.subject === selected)[0].text
-  // console.log(output)
 
   let newDate = new Date(date).toLocaleDateString()
 
@@ -45,7 +43,7 @@ function App() {
         ))}
       </select>
 
-        {/* {JSON.stringify(selected)} */}
+       
 
       <div><label>Analyst Name: </label>
       <select onChange={event => setAnalystName(event.target.value)}>
@@ -90,30 +88,8 @@ function App() {
       <button onClick={() => {navigator.clipboard.writeText(selected && data.filter(mail => mail.subject === selected)[0].text.replace(/\b(?:SBGCUSTOMER|ACCOUNTID|DATE|ANALYST|SBGTIME)\b/gi, matched => mapObj[matched]))}}
       >Copy Text</button>
 
-    {/* {data.map((data) => {
-      return  <ul key={data.id}>
-                <li>{data.subject}</li>
-              </ul>
-    })} */}
-
-   
-
-    {/* <div> 
-    {selected && data.filter(mail => mail.subject === selected)[0].text}
-    </div> */}
-    
-    {/* <div><label>Subject Heading: </label>{selected}</div> */}
-
     <pre>{selected && data.filter(mail => mail.subject === selected)[0].text.replace(/\b(?:SBGCUSTOMER|ACCOUNTID|DATE|ANALYST|SBGTIME)\b/gi, matched => mapObj[matched])}</pre>
     
-    {/* Need to get the handleclick to replace the output text 
-
-    Need to add extra information onto the JSON which is straight forward 
-
-    The line paragrah splits also need to happen before the button is clicked so the text is displayed
-    more clearly  
-
-     */}
 
      <div className='footer'>Created by <a target={'_blank'} rel="noreferrer noopener" href={'https://github.com/Rameezrk'}>Rameez Khawaja</a></div>
        
